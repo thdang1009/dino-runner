@@ -151,7 +151,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     // Update score
-    this.score = Math.floor(this.distance * 10);
+    this.score = Math.floor(this.distance / 10);
 
     // Update obstacles
     this.obstacleManager.update(time, delta, this.gameSpeed, this.distance);
@@ -165,7 +165,7 @@ export default class GameScene extends Phaser.Scene {
 
   updateUI() {
     this.scoreText.setText(`Score: ${this.score}`);
-    this.distanceText.setText(`Distance: ${Math.floor(this.distance)}m`);
+    this.distanceText.setText(`Distance: ${Math.floor(this.distance / 10)}m`);
     this.speedText.setText(`Speed: ${this.gameSpeed.toFixed(0)}`);
 
     if (this.mutationManager.currentMutation) {

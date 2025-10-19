@@ -7,8 +7,8 @@ export const GROUND_HEIGHT = 600;
 export const PLAYER_START_X = 200;
 export const PLAYER_START_Y = GROUND_HEIGHT - 50;
 export const PLAYER_BASE_SPEED = 300;
-export const PLAYER_JUMP_VELOCITY = -600;
-export const PLAYER_DOUBLE_JUMP_VELOCITY = -500;
+export const PLAYER_JUMP_VELOCITY = -800;
+export const PLAYER_DOUBLE_JUMP_VELOCITY = -700;
 
 // Difficulty Scaling
 export const BASE_SPEED = 300;
