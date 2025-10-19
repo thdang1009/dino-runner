@@ -1,0 +1,236 @@
+{
+  "mutations": [
+    {
+      "id": "tail_whip",
+      "name": "Tail Whip",
+      "dinosaur": "Ankylosaurus",
+      "rarity": "rare",
+      "duration": 8000,
+      "activation": "auto_on_pickup",
+      "destroys": ["rock", "tree", "meteor"],
+      "behavior": {
+        "type": "passive_destroyer",
+        "radius": 50,
+        "multi_use": true,
+        "on_contact": true
+      },
+      "effects": {
+        "speed_multiplier": 1.0,
+        "jump_multiplier": 1.0
+      },
+      "visual": {
+        "sprite": "tail_sprite",
+        "particle_effect": "dust_cloud",
+        "screen_tint": "#8B4513"
+      },
+      "sound": {
+        "activation": "whoosh",
+        "on_destroy": "smash"
+      },
+      "biomes": ["desert", "forest", "volcano"]
+    },
+    {
+      "id": "mighty_bite",
+      "name": "Mighty Bite",
+      "dinosaur": "T-Rex",
+      "rarity": "common",
+      "duration": 10000,
+      "activation": "trigger_button",
+      "trigger_cooldown": 500,
+      "destroys": ["rock"],
+      "behavior": {
+        "type": "triggered_destroyer",
+        "range": 80,
+        "multi_use": true,
+        "uses_per_activation": "unlimited"
+      },
+      "effects": {
+        "speed_multiplier": 1.0,
+        "jump_multiplier": 1.0
+      },
+      "visual": {
+        "sprite": "trex_head",
+        "particle_effect": "bite_marks",
+        "screen_tint": "#FF4500"
+      },
+      "sound": {
+        "activation": "roar",
+        "on_destroy": "crunch"
+      },
+      "biomes": ["desert", "forest", "volcano"]
+    },
+    {
+      "id": "horned_charge",
+      "name": "Horned Charge",
+      "dinosaur": "Triceratops",
+      "rarity": "common",
+      "duration": 10000,
+      "activation": "auto_on_pickup",
+      "destroys": ["rock"],
+      "behavior": {
+        "type": "single_use_destroyer",
+        "multi_use": false,
+        "expires_on_hit": true,
+        "on_contact": true
+      },
+      "effects": {
+        "speed_multiplier": 1.0,
+        "jump_multiplier": 1.0
+      },
+      "visual": {
+        "sprite": "triceratops_horns",
+        "particle_effect": "charge_aura",
+        "screen_tint": "#DAA520"
+      },
+      "sound": {
+        "activation": "horn_blow",
+        "on_destroy": "crash"
+      },
+      "biomes": ["desert", "forest"]
+    },
+    {
+      "id": "raptor_legs",
+      "name": "Raptor Legs",
+      "dinosaur": "Velociraptor",
+      "rarity": "common",
+      "duration": 7000,
+      "activation": "auto_on_pickup",
+      "destroys": [],
+      "behavior": {
+        "type": "stat_modifier",
+        "requires_dodging": true
+      },
+      "effects": {
+        "speed_multiplier": 1.3,
+        "jump_multiplier": 1.5
+      },
+      "visual": {
+        "sprite": "raptor_legs",
+        "particle_effect": "speed_lines",
+        "screen_tint": "#32CD32"
+      },
+      "sound": {
+        "activation": "screech",
+        "ambient": "fast_footsteps"
+      },
+      "biomes": ["desert", "forest", "volcano"]
+    },
+    {
+      "id": "long_neck",
+      "name": "Long Neck",
+      "dinosaur": "Brachiosaurus",
+      "rarity": "uncommon",
+      "duration": 12000,
+      "activation": "auto_on_pickup",
+      "destroys": [],
+      "behavior": {
+        "type": "camera_modifier",
+        "camera_zoom": 0.7,
+        "vision_distance_multiplier": 1.5
+      },
+      "effects": {
+        "speed_multiplier": 1.0,
+        "jump_multiplier": 1.0
+      },
+      "visual": {
+        "sprite": "long_neck",
+        "particle_effect": "height_indicator",
+        "screen_tint": "#87CEEB"
+      },
+      "sound": {
+        "activation": "calm_bellow",
+        "ambient": "wind"
+      },
+      "biomes": ["forest", "volcano"]
+    },
+    {
+      "id": "glide",
+      "name": "Glide",
+      "dinosaur": "Pterosaur",
+      "rarity": "uncommon",
+      "duration": 10000,
+      "activation": "auto_on_jump",
+      "destroys": [],
+      "behavior": {
+        "type": "physics_modifier",
+        "gravity_multiplier": 0.4,
+        "air_control": true
+      },
+      "effects": {
+        "speed_multiplier": 1.0,
+        "jump_multiplier": 1.0,
+        "fall_speed_multiplier": 0.3
+      },
+      "visual": {
+        "sprite": "pterosaur_wings",
+        "particle_effect": "feathers",
+        "screen_tint": "#ADD8E6"
+      },
+      "sound": {
+        "activation": "wing_flap",
+        "ambient": "gliding_whoosh"
+      },
+      "biomes": ["desert", "forest", "volcano"]
+    }
+  ],
+  "obstacle_types": [
+    {
+      "id": "rock",
+      "name": "Rock",
+      "collision_type": "ground",
+      "can_jump_over": true,
+      "can_duck_under": false,
+      "vulnerable_to": ["tail_whip", "mighty_bite", "horned_charge"]
+    },
+    {
+      "id": "tree",
+      "name": "Tree",
+      "collision_type": "ground_tall",
+      "can_jump_over": false,
+      "can_duck_under": true,
+      "vulnerable_to": ["tail_whip"]
+    },
+    {
+      "id": "meteor",
+      "name": "Meteor",
+      "collision_type": "falling",
+      "can_jump_over": false,
+      "can_duck_under": false,
+      "vulnerable_to": ["tail_whip"]
+    },
+    {
+      "id": "pit",
+      "name": "Pit",
+      "collision_type": "gap",
+      "can_jump_over": true,
+      "can_duck_under": false,
+      "vulnerable_to": []
+    }
+  ],
+  "biome_mutation_pools": {
+    "desert": {
+      "common": ["mighty_bite", "raptor_legs", "horned_charge"],
+      "uncommon": ["long_neck", "glide"],
+      "rare": ["tail_whip"]
+    },
+    "forest": {
+      "common": ["raptor_legs", "horned_charge"],
+      "uncommon": ["long_neck", "glide"],
+      "rare": ["tail_whip"]
+    },
+    "volcano": {
+      "common": ["mighty_bite", "raptor_legs"],
+      "uncommon": ["long_neck", "glide"],
+      "rare": ["tail_whip"]
+    }
+  },
+  "spawn_rates": {
+    "mutation_spawn_chance": 0.15,
+    "dna_spawn_chance": 0.3,
+    "rarity_weights": {
+      "common": 0.6,
+      "uncommon": 0.3,
+      "rare": 0.1
+    }
+  }
+}

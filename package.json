@@ -1,0 +1,27 @@
+{
+  "name": "dino-runner",
+  "version": "0.1.0",
+  "description": "Run through extinction — evolve or perish",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js"
+  },
+  "keywords": [
+    "game",
+    "phaser",
+    "runner",
+    "dinosaur"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.12",
+    "eslint": "^8.56.0"
+  }
+}
